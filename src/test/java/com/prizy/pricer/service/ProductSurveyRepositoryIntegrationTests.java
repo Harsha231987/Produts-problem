@@ -45,7 +45,7 @@ public class ProductSurveyRepositoryIntegrationTests {
     }
 
     @Test
-    public void saveProduct(){
+    public void saveProductSurvey(){
         ProductSurvey survey = new ProductSurvey();
         survey.setProductId(1l);
         survey.setStoreName("Store 1");
