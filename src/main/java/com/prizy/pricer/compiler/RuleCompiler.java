@@ -11,6 +11,9 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.*;
 
+/**
+ * compiles rules written in java code and provides a convenient way to initialize instance
+ */
 @Slf4j
 public class RuleCompiler {
 
@@ -32,6 +35,16 @@ public class RuleCompiler {
         }
     }
 
+
+    /**
+     *
+     * @param ruleClazz    type of the class/interface which the dynamic class inherits
+     * @return instantiated object of the type of rule
+     * @throws ClassNotFoundException
+     * @throws IOException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
     private static Object loadClass(Class<? extends Rule> ruleClazz) throws ClassNotFoundException, IOException, InstantiationException, IllegalAccessException {
         ResourceBundle bundle = ResourceBundle.getBundle("application");
         String ruleDirectory = bundle.getString("rule.directory");
@@ -41,7 +54,7 @@ public class RuleCompiler {
         System.setProperty("java.home", System.getenv("JAVA_HOME"));
         if (ruleFile.getParentFile().exists()) {
             try {
-                DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
+                DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<>();
                 JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
                 StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, null, null);
 

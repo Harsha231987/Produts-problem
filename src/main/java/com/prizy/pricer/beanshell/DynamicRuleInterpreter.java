@@ -13,7 +13,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * This class uses BeanShell to interpret dynamic rules
+ */
 @Slf4j
 public class DynamicRuleInterpreter {
 
