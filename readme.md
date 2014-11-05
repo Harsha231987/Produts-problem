@@ -10,6 +10,11 @@ mvn clean install <br>
 java -jar target/prizy-pricer-1.1.8.RELEASE.jar <br> 
 
 
+Skip Tests
+----------
+mvn clean install -DskipTests <br>
+
+
 Debug Mode
 ----------------
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar target/prizy-pricer-1.1.8.RELEASE.jar
@@ -33,4 +38,16 @@ curl -v -X GET http://localhost:8080/productSurvey/1
 Get Price Details
 -----------------
 http://localhost:8080/getProductPriceDetails/barcode <br>
-curl -v -X GET http://localhost:8080/getProductPriceDetails/B1234
+curl -v -X GET http://localhost:8080/getProductPriceDetails/B1234 
+
+
+Rule File
+-----------------
+Location of rule file is defined in application.properties file (rule.dir)
+
+
+BeanShell
+-----------------
+This project uses <a href="http://www.beanshell.org/" target="_blank">BeanShell</a> to load rule dynamically.
+
+

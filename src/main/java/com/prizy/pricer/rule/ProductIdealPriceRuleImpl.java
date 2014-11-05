@@ -8,25 +8,37 @@ import java.util.List;
 
 public class ProductIdealPriceRuleImpl implements ProductIdealPriceRule {
 
-    @Override
-    public BigDecimal calculateProductIdealPrice(List<BigDecimal> priceList) {
+    //@Override
+    private BigDecimal calculateProductIdealPrice(List<BigDecimal> priceList) {
         if(priceList == null || priceList.isEmpty()){
             return BigDecimal.ZERO;
         }
-        BigDecimal sum = BigDecimal.ZERO;
+        BigDecimal sum;
         int divisorNumber;
         if(priceList.size() <= 4){
             return calculateAveragePrice(priceList);
         }else{
             Collections.sort(priceList);
-            int index = 2;//starting 2
-            while(index < (priceList.size()-2)){ //last 2
-                sum = sum.add(priceList.get(index++));
-            }
-            divisorNumber = index-2;
+            priceList.remove(0);
+            priceList.remove(0);
+            priceList.remove(priceList.size()-1);
+            priceList.remove(priceList.size()-1);
+            sum = calculateTotalPrice(priceList);
+            divisorNumber = priceList.size();
         }
         BigDecimal idealPrice = sum.divide(new BigDecimal(divisorNumber), 2, RoundingMode.HALF_UP);
         return idealPrice.setScale(2, RoundingMode.HALF_UP);
+    }
+
+    public BigDecimal calculateTotalPrice(List<BigDecimal> priceList){
+        if(priceList == null || priceList.isEmpty()){
+            return BigDecimal.ZERO;
+        }
+        BigDecimal sum = BigDecimal.ZERO;
+        for(BigDecimal p : priceList){
+            sum = sum.add(p);
+        }
+        return sum;
     }
 
     public BigDecimal calculateAveragePrice(List<BigDecimal> priceList){
