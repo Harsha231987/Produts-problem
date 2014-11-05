@@ -1,13 +1,13 @@
 Clone Project
 -------------
-git clone 'Project GIT URL'
+git clone https://github.com/guptasujeet/prizy-pricer.git
 
 
 App Usage
 ---------
-cd prizy-pricer
-mvn clean install
-java -jar target/prizy-pricer-1.1.8.RELEASE.jar
+cd prizy-pricer <br>
+mvn clean install <br>
+java -jar target/prizy-pricer-1.1.8.RELEASE.jar <br> 
 
 
 Debug Mode
@@ -32,5 +32,5 @@ curl -v -X GET http://localhost:8080/productSurvey/1
 
 Get Price Details
 -----------------
-http://localhost:8080/getProductPriceDetails/<barcode>
+http://localhost:8080/getProductPriceDetails/barcode <br>
 curl -v -X GET http://localhost:8080/getProductPriceDetails/B1234
