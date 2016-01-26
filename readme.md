@@ -1,13 +1,13 @@
 Clone Project
 -------------
-git clone https://github.com/guptasujeet/prizy-pricer.git
+git clone https://github.com/guptasujeet/dynamic-pricer.git
 
 
 App Usage
 ---------
 cd prizy-pricer <br>
 mvn clean install <br>
-java -jar target/prizy-pricer-1.1.8.RELEASE.jar <br> 
+java -jar target/dynamic-pricer-1.1.8.RELEASE.jar <br> 
 
 
 Skip Tests
@@ -17,7 +17,7 @@ mvn clean install -DskipTests <br>
 
 Debug Mode
 ----------------
-java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar target/prizy-pricer-1.1.8.RELEASE.jar
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar target/dynamic-pricer-1.1.8.RELEASE.jar
 
 
 Save Product
