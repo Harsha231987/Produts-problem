@@ -5,7 +5,7 @@ git clone https://github.com/guptasujeet/dynamic-pricer.git
 
 App Usage
 ---------
-cd prizy-pricer <br>
+cd dynamic-pricer <br>
 mvn clean install <br>
 java -jar target/dynamic-pricer-1.1.8.RELEASE.jar <br> 
 
